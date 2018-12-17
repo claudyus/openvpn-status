@@ -36,7 +36,7 @@
     "body-parser": "^1.18.3",
     "cron": "^1.6.0",
     "express": "^4.16.4",
-    "maxmind": "^2.11.0",
+    "maxmind": "^2.11.1",
     "moment": "^2.23.0",
     "nconf": "^0.10.0",
     "request": "^2.88.0",
