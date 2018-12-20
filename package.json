@@ -44,7 +44,7 @@
     "sqlite3": "^4.0.4",
     "uuid": "^3.3.2",
     "ws": "^6.1.2",
-    "@babel/polyfill": "^7.0.0"
+    "@babel/polyfill": "^7.2.3"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.2.0",
