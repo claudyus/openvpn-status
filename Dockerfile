@@ -1,14 +1,12 @@
-FROM node:10
+FROM node:10-alpine
 
-ARG AUTH_USERNAME=admin
-ARG AUTH_PASSWORD=admin
-ARG VPN_NAME=Server
-ARG VPN_HOST=openvpn
-ARG VPN_MAN_PORT=7656
+WORKDIR /app
 
-WORKDIR /usr/src/app
-COPY . .
+ADD package* /app/
 RUN npm install
+
+COPY . /app/
 RUN npm run build
-EXPOSE 3013
+
+EXPOSE 5000
 CMD ["npm","start"]

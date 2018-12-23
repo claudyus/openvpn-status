@@ -41,7 +41,7 @@ The configuration is handled in the ``cfg.json`` file.
 
 | Option   | Default       | Description  |
 | -------- |:-------------:| ------------ |
-| port     | `3013` | Port on which the server will be listening. |
+| port     | `5000` | Port on which the server will be listening. |
 | bind     | `127.0.0.1` | Address to which the server will bind to. Change to `0.0.0.0` to make available on all interfaces. |
 | servers  | `[{"name": "Server","host": "127.0.0.1","man_port": 7656}]` | Array of servers. |
 | username | `admin` | User for basic HTTP authentication. Change to `''` or `false` to disable. |
@@ -50,7 +50,7 @@ The configuration is handled in the ``cfg.json`` file.
 Example:
 ```
 {
-  "port": 3013,
+  "port": 5000,
   "bind": "127.0.0.1",
   "servers": [
     {"id": 0, "name": "Server A", "host": "127.0.0.1","man_port": 7656},
@@ -90,11 +90,11 @@ pm2 start pm2.json
 pm2 save
 ```
 
-This makes the application available on http://127.0.0.1:3013.
+This makes the application available on http://127.0.0.1:5000.
 
 ## (optional) Running the service behind nginx as a reverse proxy
 
-In order to integrate the service into your webserver you might want to use nginx as a reverse proxy. The following configuration assumes that the port is set to `3013` as it is by default.
+In order to integrate the service into your webserver you might want to use nginx as a reverse proxy. The following configuration assumes that the port is set to `5000` as it is by default.
 
 ```
 server {
@@ -102,7 +102,7 @@ server {
   server_name [domain];
 
   location / {
-    proxy_pass http://127.0.0.1:3013
+    proxy_pass http://127.0.0.1:5000
     proxy_set_header X-Forwarded-Proto $scheme;
     proxy_http_version 1.1;
     proxy_set_header Upgrade $http_upgrade;
@@ -115,7 +115,7 @@ server {
 # Docker
 ### Ports
 
-- **3013**
+- **5000**
 
 ### Environment variables
 
@@ -137,7 +137,7 @@ openvpn-status:
   image: auspexeu/openvpn-status
   container_name: openvpn-status
   ports:
-    - 8080:3013
+    - 8080:5000
   environment:
     - AUTH_USERNAME=admin
     - AUTH_PASSWORD=YV3qSTxD
